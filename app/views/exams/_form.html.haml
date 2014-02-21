@@ -2,5 +2,8 @@
   .form-group{class: ("has-error" if resource.errors[:title].present?)}
     = f.label :title
     = f.text_field :title, class: "form-control", placeholder: "Title"
+  .form-group{class: ("has-error" if resource.errors[:question_ids].present?)}
+    = f.label :question_ids, "Questions"
+    = f.select :question_ids, Question.all.collect { |q| [q.prompt, q.id] }, { include_blank: true }, { class: "form-control", multiple: true }
   = f.submit "Save", class: %w(btn btn-primary btn-md)
   = link_to "Cancel", :back, class: %w(btn btn-link btn-md)

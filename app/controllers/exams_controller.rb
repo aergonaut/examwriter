@@ -9,6 +9,7 @@ class ExamsController < ApplicationController
 
   def create
     @exam = Exam.new(exam_params)
+    @exam.question_ids = params[:exam][:question_ids]
     if @exam.save
       flash[:success] = "Exam create successfully"
       redirect_to exams_path
@@ -24,6 +25,7 @@ class ExamsController < ApplicationController
 
   def update
     @exam = Exam.find(params[:id])
+    @exam.question_ids = params[:exam][:question_ids]
     if @exam.update(exam_params)
       flash[:success] = "Exam updated"
       redirect_to exams_path
@@ -31,6 +33,10 @@ class ExamsController < ApplicationController
       flash[:danger] = "Please fix the errors below"
       render :edit
     end
+  end
+
+  def show
+    @exam = Exam.find(params[:id])
   end
 
   private

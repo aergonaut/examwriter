@@ -1,11 +1,13 @@
-= form_for resource, role: "form" do |f|
+- form_url ||= questions_path
+- hide_types ||= false
+= form_for resource, as: "question", url: form_url, role: "form" do |f|
   .form-group{class: ("has-error" if resource.errors[:prompt].present?)}
     = f.label :prompt
     = f.text_field :prompt, class: "form-control", placeholder: "Prompt"
   .form-group{class: ("has-error" if resource.errors[:type].present?)}
     - [MultipleChoiceQuestion, TrueFalseQuestion].each do |klass|
       %label.radio-inline
-        = f.radio_button :type, klass.to_s
+        = f.radio_button :type, klass.to_s, disabled: hide_types
         = klass.to_s.titleize
 
   .multiple-choice
