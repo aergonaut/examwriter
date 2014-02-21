@@ -1,0 +1,6 @@
+- if flash.any?
+  .container
+    .row
+      - flash.each do |key, msg|
+        - key = "danger" if key.to_s == "alert"
+        .alert{class: "alert-#{key}"}= msg

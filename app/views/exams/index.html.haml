@@ -1,0 +1,21 @@
+.container
+  .row
+    .col-sm-12
+      %h1
+        All Exams
+        %small= link_to "Create new", new_exam_path
+
+      %table.table
+        %thead
+          %tr
+            %th Title
+            %th # of Questions
+            %th Actions
+        %tbody
+          - @exams.each do |exam|
+            %tr
+              %td= exam.title
+              %td= exam.questions.count
+              %td
+                = link_to "Edit", edit_exam_path(exam)
+                = link_to "Delete", exam_path(exam), method: :delete

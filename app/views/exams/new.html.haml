@@ -1,0 +1,8 @@
+.container
+  .row
+    .col-sm-12
+      %h1 New Exam
+
+  .row
+    .col-sm-6
+      = render partial: "form", locals: { resource: @exam }

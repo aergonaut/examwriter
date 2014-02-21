@@ -1,0 +1,6 @@
+= form_for resource, role: "form" do |f|
+  .form-group{class: ("has-error" if resource.errors[:title].present?)}
+    = f.label :title
+    = f.text_field :title, class: "form-control", placeholder: "Title"
+  = f.submit "Save", class: %w(btn btn-primary btn-md)
+  = link_to "Cancel", :back, class: %w(btn btn-link btn-md)
