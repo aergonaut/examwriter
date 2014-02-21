@@ -3,8 +3,12 @@ class Question < ActiveRecord::Base
 
   belongs_to :exam
 
-  def kind
+  def self.kind
     "Generic"
+  end
+
+  def kind
+    self.class.kind
   end
 
   def true_false?

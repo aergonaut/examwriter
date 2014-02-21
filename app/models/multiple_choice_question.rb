@@ -3,7 +3,7 @@ class MultipleChoiceQuestion < Question
 
   validates_presence_of :option_a, :option_b, :option_c, :option_d
 
-  def kind
+  def self.kind
     "Multiple Choice"
   end
 

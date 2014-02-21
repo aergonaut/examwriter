@@ -1,0 +1,31 @@
+= form_for resource, role: "form" do |f|
+  .form-group{class: ("has-error" if resource.errors[:prompt].present?)}
+    = f.label :prompt
+    = f.text_field :prompt, class: "form-control", placeholder: "Prompt"
+  .form-group{class: ("has-error" if resource.errors[:type].present?)}
+    - [MultipleChoiceQuestion, TrueFalseQuestion].each do |klass|
+      %label.radio-inline
+        = f.radio_button :type, klass.to_s
+        = klass.to_s.titleize
+
+  .multiple-choice
+    .form-group{class: ("has-error" if resource.errors[:option_a].present?)}
+      = f.label :option_a, "Option A"
+      = f.text_field :option_a, class: "form-control"
+    .form-group{class: ("has-error" if resource.errors[:option_b].present?)}
+      = f.label :option_b, "Option B"
+      = f.text_field :option_b, class: "form-control"
+    .form-group{class: ("has-error" if resource.errors[:option_c].present?)}
+      = f.label :option_c, "Option C"
+      = f.text_field :option_c, class: "form-control"
+    .form-group{class: ("has-error" if resource.errors[:option_d].present?)}
+      = f.label :option_d, "Option D"
+      = f.text_field :option_d, class: "form-control"
+
+
+  .form-group{class: ("has-error" if resource.errors[:answer].present?)}
+    = f.label :answer
+    = f.text_field :answer, class: "form-control", placeholder: "Answer"
+
+  = f.submit "Save", class: %w(btn btn-primary btn-md)
+  = link_to "Cancel", :back, class: %w(btn btn-link btn-md)
