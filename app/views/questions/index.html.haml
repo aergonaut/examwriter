@@ -1,0 +1,21 @@
+.container
+  .row
+    .col-sm-12
+      %h1
+        All Questions
+        %small= link_to "Create new", new_question_path
+
+      %table.table
+        %thead
+          %tr
+            %th Prompt
+            %th Kind
+            %th Actions
+        %tbody
+          - @questions.each do |question|
+            %tr
+              %td= question.prompt
+              %td= question.kind
+              %td
+                = link_to "Edit", edit_question_path(question)
+                = link_to "Delete", question_path(question), method: :delete
