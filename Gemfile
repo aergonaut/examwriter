@@ -48,6 +48,8 @@ gem 'unicorn'
 
 gem 'bootstrap-sass'
 
+gem 'haml-rails'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
