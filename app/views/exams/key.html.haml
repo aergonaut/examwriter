@@ -1,0 +1,14 @@
+.container
+  .row
+    .col-sm-12
+      %h1
+        Key for
+        = link_to @exam.title, exam_path(@exam)
+  .row
+    %ol
+      - @exam.questions.each do |question|
+        %li.exam-item
+          = question.prompt
+          %br/
+          %strong Answer:
+          = question.answer

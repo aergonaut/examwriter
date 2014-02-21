@@ -1,0 +1,21 @@
+%li.exam-item
+  %p
+    %strong= question.prompt
+
+  %ul
+    - if question.true_false?
+      %li True
+      %li False
+    - elsif question.multiple_choice?
+      %li
+        A.
+        = question.option_a
+      %li
+        B.
+        = question.option_b
+      %li
+        C.
+        = question.option_c
+      %li
+        D.
+        = question.option_d

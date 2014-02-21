@@ -1,0 +1,9 @@
+.container
+  .row
+    .col-sm-12
+      %h1= @exam.title
+  .row
+    .col-sm-12
+      %ol
+        = render partial: "questions/question", collection: @exam.questions
+      %p= link_to "Key", key_exam_path(@exam)

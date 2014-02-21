@@ -39,6 +39,10 @@ class ExamsController < ApplicationController
     @exam = Exam.find(params[:id])
   end
 
+  def key
+    @exam = Exam.find(params[:id])
+  end
+
   private
 
   def exam_params

@@ -14,7 +14,7 @@
         %tbody
           - @exams.each do |exam|
             %tr
-              %td= exam.title
+              %td= link_to exam.title, exam_path(exam)
               %td= exam.questions.count
               %td
                 = link_to "Edit", edit_exam_path(exam)

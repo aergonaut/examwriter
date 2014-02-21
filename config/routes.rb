@@ -1,7 +1,11 @@
 Examwriter::Application.routes.draw do
   resources :questions
 
-  resources :exams
+  resources :exams do
+    member do
+      get "key" => "exams#key"
+    end
+  end
 
   root "exams#index"
 
