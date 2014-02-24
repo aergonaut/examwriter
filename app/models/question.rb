@@ -27,7 +27,7 @@ class Question < ActiveRecord::Base
     false
   end
 
-  def multiple_chocie?
+  def multiple_choice?
     false
   end
 end
