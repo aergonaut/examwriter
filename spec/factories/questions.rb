@@ -11,5 +11,9 @@ FactoryGirl.define do
       option_d "MyString"
       answer "D"
     end
+
+    factory :true_false_question, class: "TrueFalseQuestion" do
+      answer "T"
+    end
   end
 end
