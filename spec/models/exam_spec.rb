@@ -1,5 +1,16 @@
 require 'spec_helper'
 
 describe Exam do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject(:exam) { FactoryGirl.build :exam }
+
+  describe "title validation" do
+    before do
+      exam.title = ""
+      exam.valid?
+    end
+
+    subject { exam.errors.messages }
+
+    it { should have_key(:title) }
+  end
 end
