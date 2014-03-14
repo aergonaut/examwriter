@@ -1,7 +1,7 @@
 class TrueFalseQuestion < Question
   validates :answer, inclusion: { in: %w(T F), message: "must be T/F" }
 
-  def kind
+  def self.kind
     "True/False"
   end
 
