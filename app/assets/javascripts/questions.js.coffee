@@ -5,6 +5,6 @@
 $("input[name='question[type]']").on "change", ->
   val = $(this).val()
   if val == "MultipleChoiceQuestion"
-    $(".multiple-choice").show()
+    $(".multiple-choice").removeClass("hidden")
   else
-    $(".multiple-choice").hide()
+    $(".multiple-choice").addClass("hidden")

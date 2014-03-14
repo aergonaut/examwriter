@@ -14,7 +14,9 @@
 @import 'bootstrap';
 
 .multiple-choice {
-   display: none;
+  &.hidden {
+    display: none;
+  }
 }
 
 .exam-item {

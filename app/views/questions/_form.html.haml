@@ -10,7 +10,7 @@
         = f.radio_button :type, klass.to_s, disabled: hide_types
         = klass.to_s.titleize
 
-  .multiple-choice
+  .multiple-choice{class: ("hidden" unless resource.multiple_choice?)}
     .form-group{class: ("has-error" if resource.errors[:option_a].present?)}
       = f.label :option_a, "Option A"
       = f.text_field :option_a, class: "form-control"
