@@ -35,6 +35,11 @@ class ExamsController < ApplicationController
     end
   end
 
+  def destroy
+    Exam.find(params[:id]).destroy
+    redirect_to action: 'index'
+  end
+
   def show
     @exam = Exam.find(params[:id])
   end
